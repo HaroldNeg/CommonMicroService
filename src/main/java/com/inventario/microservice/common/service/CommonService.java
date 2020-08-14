@@ -1,11 +1,10 @@
 package com.inventario.microservice.common.service;
 
-import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 
 public interface CommonService<E> {
 
-	public abstract ResponseEntity<?> save(RequestEntity<?> entity);
+	public abstract ResponseEntity<?> save(E entity);
 
 	public abstract ResponseEntity<?> list();
 	

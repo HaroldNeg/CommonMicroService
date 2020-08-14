@@ -1,7 +1,6 @@
 package com.inventario.microservice.common.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,14 +14,16 @@ public class CommonController<E, S extends CommonService<E>> {
 	@Autowired
 	protected S service;
 	
+
+	
+	@PostMapping
+	public ResponseEntity<?> crear(E entity){
+		return service.save(entity);
+	}
+	
 	@GetMapping
 	public ResponseEntity<?> listar(){
 		return service.list();
-	}
-	
-	@PostMapping
-	public ResponseEntity<?> crear(RequestEntity<?> entity){
-		return service.save(entity);
 	}
 	
 	@GetMapping("/{id}")
