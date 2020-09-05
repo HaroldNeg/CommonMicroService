@@ -14,8 +14,6 @@ public class CommonController<E, S extends CommonService<E>> {
 	@Autowired
 	protected S service;
 	
-
-	
 	@PostMapping
 	public ResponseEntity<?> crear(E entity){
 		return service.save(entity);
